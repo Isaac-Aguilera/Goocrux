@@ -21,8 +21,10 @@ class CategoriaController extends Controller
         // Si el id de categoria es 0(No existe este id de categoria.) coje todos los productos, sino coje los productos de la categoria(Id de categoria.) passada por POST.
         if ($request['id'] == 0) {
             $videos = Video::orderBy('created_at', 'DESC')->get();
+            $name = "All";
         } else {
             $videos = Video::orderBy('created_at', 'DESC')->where("categoria_id", "=", $request['id'])->get();
+            $name = Categoria::find($request['id'])->name;
         }
 
         // Lista los productos cojidos para añadirlos a la vista.
@@ -73,7 +75,7 @@ class CategoriaController extends Controller
                 <h4 class='alert alert-danger text-center'>There are no videos of " . Categoria::find($request['id'])->name . " category!</h4>
             </div>", 'name' => Categoria::find($request['id'])->name);
         } else {
-            return array("content" => $a, 'name' => Categoria::find($request['id'])->name);
+            return array("content" => $a, 'name' => $name);
         }
     }
 }

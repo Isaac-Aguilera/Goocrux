@@ -16,6 +16,7 @@
         "pbmedia/laravel-ffmpeg": "^7.5"
     },
     "require-dev": {
+        "bennett-treptow/laravel-migration-generator": "^3.1",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "krlove/eloquent-model-generator": "^1.3",
