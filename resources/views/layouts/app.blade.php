@@ -16,6 +16,8 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/navbar.js') }}" defer></script>
 
+
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
@@ -26,13 +28,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="z-index: 1;">
-            <div class="container">
+            <div class="container-fluid">
 
                 <a class="navbar-brand neon-button" href="{{ url('/') }}">
                     Goocrux
@@ -171,5 +174,4 @@
     <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i
             class="fa fa-chevron-up"></i></a>
 </body>
-
 </html>
