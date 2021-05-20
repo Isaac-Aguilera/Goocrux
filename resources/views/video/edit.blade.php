@@ -22,7 +22,7 @@
 
                     <div class="card-body">
                         <form method="POST" class="myform"
-                            action="{{ route('editarVideo', $video->id) }}"
+                            action="{{ route('editarVideoPost') }}"
                             enctype="multipart/form-data">
                             @csrf
 
@@ -30,6 +30,8 @@
                                 <div class="alert alert-success">{{ session()->get('message') }}
                                 </div>
                             @endif
+
+                            <input type="number" id="id" name='id' value="{{ $video->id }}" hidden>
 
                             <div class="form-group row">
                                 <label for="title"

@@ -52,7 +52,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mx-auto">
                         <form class="d-flex mt-3" method="GET" action="{{ route('search') }}">
-                            <input class="form-control me-2 col-10 w-100" type="search" placeholder="Search"
+                            <input class="form-control me-2 w-100" type="search" placeholder="Search"
                                 aria-label="Search" id="search" name="search">
                             <button class="btn btn-outline-success ml-2" type="submit">Search</button>
                         </form>
@@ -78,15 +78,17 @@
                         @endif
                     @else
 
-                        <div class="dropdown" style="float: right; padding: 13px">
+                    <ul class="navbar-nav">
+                        <div class="dropdown">
                             <a href="#" onclick="netejarnoti('{{ csrf_token() }}')" role="button" data-toggle="dropdown"
-                                id="dropdownMenu1" data-target="#" style="float: left" aria-expanded="true">
-                                <i class="fa fa-bell" style="font-size: 20px; float: left; color: white">
+                                id="dropdownMenu1" data-target="#" aria-expanded="true">
+                                <i class="fa fa-bell" style="font-size: 20px;color: white;">
                                 </i>
+                                <div style="position: relative; left: -10px; top: -10px;" id="notinumber"
+                                class="badge badge-danger">{{ Auth::user()->notificacions->where("state", "=", true)->count() }}</div>
                             </a>
-                            <span id="notinumber"
-                                class="badge badge-danger">{{ Auth::user()->notificacions->where("state", "=", true)->count() }}</span>
-                            <ul class="dropdown-menu dropdown-menu-left pull-right" role="menu"
+                            
+                            <ul class="dropdown-menu dropdown-menu-left" role="menu"
                                 aria-labelledby="dropdownMenu1">
                                 <li role="presentation" class="mx-auto">
                                     <span class="font-weight-bold ml-3">Notifications</span>
@@ -112,7 +114,7 @@
                                 </li>
                             </ul>
                         </div>
-
+                    </ul>
                         <ul class="navbar-nav">
 
                             <li class="nav-item my-auto mr-2">

@@ -43,16 +43,18 @@
         @endif
     </div>
 </div>
-@if(Auth::user() != null)
-    @if(Auth::user()->id == $user->id)
+
         <div class="row">
             <div class="col">
-                {{-- <a href="{{ route('user', $user->nick) }}">
-                <img class="mr-1" style="border-radius:50%;width:5.5vw;min-width:80px;min-height:80px;"
-                    src="/{{ $user->image }}">
-                </a> --}}
-                <strong><span class="h1 font-weight-bold">{{ $user->nick }}</span></strong>
 
+                <a href="{{ route('user', $user->nick) }}">
+                    <img class="pt-0 mr-2"
+                        style="border-radius:50%;width:2.5vw;min-width:80px;min-height:80px;"
+                        src="../{{ $user->image }}">
+                </a>
+                <strong><span class="h1 font-weight-bold">{{ $user->nick }}</span></strong>
+                @if(Auth::user() != null)
+                @if(Auth::user()->id == $user->id)
                 <div class="float-right">
                     <a href="{{ route('pujarVideo') }}"><button class="btn btn-outline-dark">UPLOAD</button></a>
 
@@ -112,13 +114,15 @@
                     @endif
                 @endif
             </ul>
-            <ul class="navbar-nav">
-                <form class="d-flex justify-content-end" method="GET" action="{{ route('usersearch', $user->nick) }}">
-                    <input class="form-control mt-3" type="search" placeholder="Search" aria-label="Search" id="search"
-                        name="search">
-                    <button class="btn btn-outline-success ml-2 mt-3" type="submit">Search</button>
-                </form>
-            </ul>
+            @if($user->videos->count() >= 1)
+                <ul class="navbar-nav">
+                    <form class="d-flex justify-content-end" method="GET" action="{{ route('usersearch', $user->nick) }}">
+                        <input class="form-control mt-3" type="search" placeholder="Search" aria-label="Search" id="search"
+                            name="search">
+                        <button class="btn btn-outline-success ml-2 mt-3" type="submit">Search</button>
+                    </form>
+                </ul>
+            @endif
         </nav>
     </div>
 </div>

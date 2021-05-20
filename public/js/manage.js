@@ -15,7 +15,7 @@ function eliminarvideo(id, token) {
         },
         error: function (response) {
             /*
-                Si la peticion ajax terorna error lanza un pop up comunicando el error.
+                Si la peticion ajax retorna error lanza un pop up comunicando el error.
             */
             var alertDiv = `<div class="modal fade" id="modal0">
                         <div class="modal-dialog">

@@ -19,7 +19,7 @@ function guardarDesc(token) {
 
     desc = document.getElementById("desctextarea").value;
     /*
-        Lanza una peticion ajax con el el nuevo contenido de la descripcion del usuario.
+        Lanza una peticion ajax con el nuevo contenido de la descripcion del usuario.
     */
     $.ajax({
         url: '/canviardesc',

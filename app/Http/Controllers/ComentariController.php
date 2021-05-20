@@ -58,7 +58,7 @@ class ComentariController extends Controller
     public function update(Request $request)
     {
         // Obtiene el comentario.
-        $id = $request->route('id');
+        $id = $request['id'];
         $comentari = Comentari::find($id);
 
         // Cambia el contenido y lo guarda.
@@ -77,7 +77,7 @@ class ComentariController extends Controller
     public function destroy(Request $request)
     {
         // Obtiene el comentario.
-        $id = $request->route('id');
+        $id = $request['id'];
         $comentari = Comentari::find($id);
 
         // Obtine el video del comentario antes de que se elimine el comentario.

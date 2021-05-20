@@ -134,7 +134,7 @@ class VideoController extends Controller
     {
 
         $this->middleware('auth');
-        $video = Video::find($request->route('id'));
+        $video = Video::find($request['id']);
         $data = $request->all();
         Validator::make($data, [
             'title' => ['required', 'string', 'min:5', 'max:255'],

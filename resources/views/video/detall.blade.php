@@ -108,14 +108,14 @@
                             </div>
                         </div>
 
-                        <h3 id="contador">{{ $video->comentaris->count() }} comments</h3>
+                        <h4 class="font-weight-bold" id="contador">{{ $video->comentaris->count() }} comments</h4>
                         <textarea placeholder="Write a comment!" name="contingut" id="contingut" class="form-control"
                             rows="5"></textarea>
                         <button onclick="afegirComentari({{ $video->id }}, '{{ csrf_token() }}')"
                             class="btn btn-large btn-block btn-primary mt-3" type="submit">Enviar</button>
                         <div id="comentaris" class="mt-3">
                             @if($video->comentaris->count() == 0)
-                                <h5>There are no comments!</h5>
+                                <h4 class="font-weight-bold">There are no comments!</h4>
                             @else
                                 @foreach($video->comentaris as $comentari)
                                     <div class="mt-3" id={{ $comentari->id }}>

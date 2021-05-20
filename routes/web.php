@@ -36,7 +36,7 @@ Route::post('/pujarVideo', [VideoController::class, 'store'])->name('pujarVideo'
 
 Route::get('/video/{id}', [VideoController::class, 'index'])->name('video');
 Route::get('/editarVideo/{id}', [VideoController::class, 'edit'])->name('editarVideo');
-Route::post('/editarVideo/{id}', [VideoController::class, 'update'])->name('editarVideo');
+Route::post('/editarVideo', [VideoController::class, 'update'])->name('editarVideoPost');
 
 Route::get('/user/{nick}', [UserController::class, 'index'])->name('user');
 
@@ -63,8 +63,8 @@ Route::post('/valoracio', [ValoracioController::class, 'store'])->name('valoraci
 Route::delete('/valoracio', [ValoracioController::class, 'destroy'])->name('valoracio');
 
 Route::post('/comentari', [ComentariController::class, 'store'])->name('comentari');
-Route::post('/editarComentari/{id}', [ComentariController::class, 'update'])->name('editarComentari');
-Route::delete('/comentari/{id}', [ComentariController::class, 'destroy'])->name('eliminarComentari');
+Route::post('/editarComentari', [ComentariController::class, 'update'])->name('editarComentari');
+Route::delete('/comentari', [ComentariController::class, 'destroy'])->name('eliminarComentari');
 
 Route::post('/canviardesc', [UserController::class, 'canviardesc'])->name('canviardesc');
 
