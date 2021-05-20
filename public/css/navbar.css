@@ -71,3 +71,26 @@
   .neon-button:focus::after {
     opacity: 1;
   }
+
+  .cookie-disclaimer {
+    background: #000000;
+    color: #FFF;
+    opacity: 0.8;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 80px;
+    position: fixed;
+  }
+  .cookie-disclaimer .container {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .cookie-disclaimer .cookie-close{
+    float: right;
+    padding: 10px;
+    cursor: pointer;
+  }

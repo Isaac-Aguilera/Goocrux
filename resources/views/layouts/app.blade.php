@@ -65,42 +65,41 @@
 
                     <!-- Authentication Links -->
                     @guest
-                        @if(Route::has('login'))
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link active"
-                                        href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
+                    @if(Route::has('login'))
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
                         @endif
 
                         @if(Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link active"
-                                    href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
                         @endif
-                    @else
+                        @else
 
-                    <ul class="navbar-nav">
-                        <div class="dropdown">
-                            <a href="#" onclick="netejarnoti('{{ csrf_token() }}')" role="button" data-toggle="dropdown"
-                                id="dropdownMenu1" data-target="#" aria-expanded="true">
-                                <i class="fa fa-bell" style="font-size: 20px;color: white;">
-                                </i>
-                                <div style="position: relative; left: -10px; top: -10px;" id="notinumber"
-                                class="badge badge-danger">{{ Auth::user()->notificacions->where("state", "=", true)->count() }}</div>
-                            </a>
-                            
-                            <ul class="dropdown-menu dropdown-menu-left" role="menu"
-                                aria-labelledby="dropdownMenu1">
-                                <li role="presentation" class="mx-auto">
-                                    <span class="font-weight-bold ml-3">Notifications</span>
-                                </li>
-                                <ul class="list-group list-group-flush p-0" style="width: 220px">
-                                    @if(Auth::user()->notificacions->where("state", "=", true)->count() < 1) <p
-                                        class="ml-3">There are no notifications!</p>
-                                    @else
-                                        @foreach(Auth::user()->notificacions->where("state", "=", true) as $notifi)
+                        <ul class="navbar-nav">
+                            <div class="dropdown">
+                                <a href="#" onclick="netejarnoti('{{ csrf_token() }}')" role="button"
+                                    data-toggle="dropdown" id="dropdownMenu1" data-target="#" aria-expanded="true">
+                                    <i class="fa fa-bell" style="font-size: 20px;color: white;">
+                                    </i>
+                                    <div style="position: relative; left: -10px; top: -10px;" id="notinumber"
+                                        class="badge badge-danger">
+                                        {{ Auth::user()->notificacions->where("state", "=", true)->count() }}</div>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-left" role="menu"
+                                    aria-labelledby="dropdownMenu1">
+                                    <li role="presentation" class="mx-auto">
+                                        <span class="font-weight-bold ml-3">Notifications</span>
+                                    </li>
+                                    <ul class="list-group list-group-flush p-0" style="width: 220px">
+                                        @if(Auth::user()->notificacions->where("state", "=", true)->count() < 1) <p
+                                            class="ml-3">There are no notifications!</p>
+                                            @else
+                                            @foreach(Auth::user()->notificacions->where("state", "=", true) as $notifi)
                                             <li class="list-group-item p-0 ml-3 mt-3">
                                                 <p>
                                                     {{ $notifi->noti_desc }}
@@ -109,15 +108,15 @@
                                                     </p>
                                                 </p>
                                             </li>
-                                        @endforeach
-                                    @endif
+                                            @endforeach
+                                            @endif
+                                    </ul>
+                                    <li role="presentation">
+                                        <a href="#" class="dropdown-menu-header"></a>
+                                    </li>
                                 </ul>
-                                <li role="presentation">
-                                    <a href="#" class="dropdown-menu-header"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </ul>
+                            </div>
+                        </ul>
                         <ul class="navbar-nav">
 
                             <li class="nav-item my-auto mr-2">
@@ -140,8 +139,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropright" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item"
-                                        href="{{ route('user', Auth::user()->nick) }}">
+                                    <a class="dropdown-item" href="{{ route('user', Auth::user()->nick) }}">
                                         Profile
                                     </a>
                                     <a class="dropdown-item" href="{{ route('config') }}">
@@ -154,24 +152,35 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}"
-                                        method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
                             </div>
 
                         </ul>
-                    @endguest
+                        @endguest
                 </div>
             </div>
         </nav>
 
         <main class="py-4">
             @yield('content')
+
         </main>
+        
+    </div>
+    <div class="cookie-disclaimer">
+        <div class="cookie-close accept-cookie"><i class="fa fa-times"></i></div>
+        <div class="container">
+            <span>
+                We use cookies for functional pruposes on this website.
+            </span>
+            <button type="button"  class="btn btn-success accept-cookie">Accept!</button>
+        </div>
     </div>
     <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i
             class="fa fa-chevron-up"></i></a>
 </body>
+
 </html>
