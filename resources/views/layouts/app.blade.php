@@ -32,7 +32,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="z-index: 1;">
-            <div class="container">
+            <div class="container-fluid">
 
                 <a class="navbar-brand neon-button" href="{{ url('/') }}">
                     Goocrux
